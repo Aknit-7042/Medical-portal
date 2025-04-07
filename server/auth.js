@@ -1,11 +1,13 @@
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 
-// Generate a strong random secret key
-const JWT_SECRET = crypto.randomBytes(64).toString('hex');
+// Use a persistent secret key
+const JWT_SECRET = 'your-super-secret-jwt-key-2025';
 
 // Store authorized user credentials
-const AUTHORIZED_USERS = {};
+const AUTHORIZED_USERS = {
+  'pmatwa@icloud.com': 'pass-10041998'
+};
 
 // Set the authorized email and password
 function setAuthorizedUser(email, password) {

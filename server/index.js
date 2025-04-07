@@ -4,9 +4,6 @@ const cors = require('cors');
 const path = require('path');
 const { authenticateUser, validateToken, setAuthorizedUser } = require('./auth');
 
-// Set up authorized user with sister's credentials
-setAuthorizedUser('pmatwa@icloud.com', 'pass-10041998');
-
 const app = express();
 const port = process.env.PORT || 5001;
 
