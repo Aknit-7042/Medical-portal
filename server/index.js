@@ -12,7 +12,22 @@ app.use(express.static(path.join(__dirname, '..', 'build')));
 
 // Configure CORS
 app.use(cors({
-  origin: ['http://localhost:3001', 'http://192.168.1.72:3001'],
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);
+    
+    // Allow localhost and ngrok URLs
+    if(
+      origin.startsWith('http://localhost:') ||
+      origin.startsWith('https://') ||
+      origin.includes('.ngrok.io') ||
+      origin.includes('.ngrok-free.app')
+    ){
+      return callback(null, true);
+    }
+    
+    callback(new Error('Not allowed by CORS'));
+  },
   credentials: true
 }));
 
