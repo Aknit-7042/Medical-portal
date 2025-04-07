@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import config from '../config';
 import {
   Container,
   Paper,
@@ -25,7 +26,7 @@ function Login() {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5001/api/login', {
+      const response = await fetch(`${config.apiUrl}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

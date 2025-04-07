@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import config from '../config';
 import { useNavigate } from 'react-router-dom';
 import {
   Container,
@@ -36,7 +37,7 @@ function Test() {
   const fetchChapters = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5001/api/chapters', {
+      const response = await fetch(`${config.apiUrl}/api/chapters`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -79,7 +80,7 @@ function Test() {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5001/api/questions', {
+      const response = await fetch(`${config.apiUrl}/api/questions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -139,7 +140,7 @@ function Test() {
         })),
       };
 
-      const response = await fetch('http://localhost:5001/api/submit', {
+      const response = await fetch(`${config.apiUrl}/api/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

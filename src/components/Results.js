@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import config from '../config';
 import { useNavigate } from 'react-router-dom';
 import {
   Container,
@@ -29,7 +30,7 @@ function Results() {
 
   const fetchResults = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/results', {
+      const response = await fetch(`${config.apiUrl}/api/results`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
