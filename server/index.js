@@ -13,9 +13,9 @@ const port = process.env.PORT || 5001;
 // Serve static files from the React build
 app.use(express.static(path.join(__dirname, '..', 'build')));
 
-// Configure CORS for your domain
+// Configure CORS
 app.use(cors({
-  origin: ['http://matwa.in', 'https://matwa.in', 'http://localhost:3001'],
+  origin: true, // Allow all origins
   credentials: true
 }));
 
