@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '..', 'build')));
 
 // Configure CORS
 app.use(cors({
-  origin: true, // Allow all origins
+  origin: ['http://localhost:3001', 'http://192.168.1.72:3001'],
   credentials: true
 }));
 
